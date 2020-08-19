@@ -1,0 +1,18 @@
+body {font-family:'Nunito';}
+
+#container {max-width:500px; margin:0 auto; padding:0; overflow:hidden; position:relative;}
+
+#gameBoard {list-style:none; margin:0 auto; padding:0; max-width:480px; font-size:0;}
+#gameBoard li {width:100px; height:100px; margin:10px; display:inline-block; box-sizing:border-box; font-size:1rem; border-radius:50%; position:relative; cursor:pointer; transition:all 0.4s;}
+#gameBoard li::after {display:block; position:absolute; top:0; left:0; height:100px; width:100px; background-image:url('hideblock.jpg'); content:''; background-position:center; background-size:cover; border-radius:50%; overflow:hidden; z-index:2; transition-delay:0.1s;}
+#gameBoard li img {width:100%; border-radius:50%; position:absolute; top:0; left:0; z-index:1; transform:rotateY(180deg);}
+
+#gameBoard li.flipped {transform:rotateY(180deg);}
+#gameBoard li.flipped::after {opacity:0;}
+
+#gameBoard li.matched {opacity:0.5;}
+
+#notificationBar {background:linear-gradient(to right, rgba(255,255,255,0) 10%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 90%); position:absolute; top:calc(50% - 50px); height:100px; width:calc(100% - 20px); z-index:10; text-align:center; font-size:40px; line-height:80px; color:#1b4960; transition:all 0.5s; opacity:0; right:-100%;}
+#notificationBar div {font-size:16px; color:#888; line-height:0; margin-top:-10px;}
+
+#notificationBar.active {right:10px; opacity:1;}
